@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinecraftPinger.Library", "src\MinecraftPinger.Library\MinecraftPinger.Library.csproj", "{F3ED0127-6F9F-4E68-8FF3-9B7C7C8FD70B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3ED0127-6F9F-4E68-8FF3-9B7C7C8FD70B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3ED0127-6F9F-4E68-8FF3-9B7C7C8FD70B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3ED0127-6F9F-4E68-8FF3-9B7C7C8FD70B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3ED0127-6F9F-4E68-8FF3-9B7C7C8FD70B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A621DFC-BF1A-4DFF-A02F-21ABD62CCFDC}
+	EndGlobalSection
+EndGlobal
