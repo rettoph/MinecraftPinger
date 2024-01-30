@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
+﻿using System.Net;
 
 namespace MinecraftPinger.Library.Utilities
 {
     public static class IPEndPointHelper
     {
-        public static IPEndPoint GetIPEndPointFromHost(String host, Int32 port, Boolean throwIfMoreThanOneIP)
+        public static IPEndPoint GetIPEndPointFromHost(string host, int port, bool throwIfMoreThanOneIP)
         {
-            var addresses = System.Net.Dns.GetHostAddresses(host);
+            var addresses = Dns.GetHostAddresses(host);
             if (addresses.Length == 0)
             {
                 throw new ArgumentException(

@@ -9,7 +9,7 @@ namespace System.Net.Sockets
     {
         public static void Write(this NetworkStream stream, OutgoingMessage om)
         {
-            Byte[] message = om.GetData(true);
+            byte[] message = om.GetData(true);
 
             stream.Write(message, 0, message.Length);
         }

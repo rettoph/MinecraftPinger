@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MinecraftPinger.Library.Enums
 {
-    public enum PacketId : Byte
+    public enum PacketId : byte
     {
         /// <summary>
         /// https://wiki.vg/Raknet_Protocol#Unconnected_Ping

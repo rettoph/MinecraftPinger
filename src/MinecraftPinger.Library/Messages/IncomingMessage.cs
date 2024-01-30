@@ -16,11 +16,11 @@ namespace MinecraftPinger.Library
     public class IncomingMessage
     {
         public readonly PacketId Id;
-        public readonly Int32 Length;
-        public Int32 Offset { get; set; }
-        public Byte[] Buffer { get; private set; }
+        public readonly int Length;
+        public int Offset { get; set; }
+        public byte[] Buffer { get; private set; }
 
-        public IncomingMessage(Byte[] buffer)
+        public IncomingMessage(byte[] buffer)
         {
             this.Offset = 0;
             this.Buffer = buffer;
@@ -47,13 +47,13 @@ namespace MinecraftPinger.Library
             // Read the message into the internal buffer
             //this.Buffer = new Byte[this.Length];
             //stream.Read(this.Buffer, 0, this.Length);
-            Int32 index = 0;
-            List<Byte> _temp = new List<Byte>();
+            int index = 0;
+            List<byte> _temp = new List<byte>();
 
             while (_temp.Count < this.Length && index < this.Length * 2)
             {
                 if (stream.DataAvailable)
-                    _temp.Add((Byte)stream.ReadByte());
+                    _temp.Add((byte)stream.ReadByte());
                 else
                     Thread.Sleep(1);
 
@@ -70,18 +70,18 @@ namespace MinecraftPinger.Library
             this.Id = (PacketId)this.ReadByte();
         }
 
-        public Byte ReadByte()
+        public byte ReadByte()
         {
             var b = this.Buffer[this.Offset];
             this.Offset += 1;
             return b;
         }
 
-        public Byte[] Read(Int32 length)
+        public byte[] Read(int length)
         {
             if (this.Buffer.Length >= length)
             {
-                var data = new Byte[length];
+                var data = new byte[length];
                 Array.Copy(this.Buffer, this.Offset, data, 0, length);
                 this.Offset += length;
                 return data;
@@ -90,11 +90,11 @@ namespace MinecraftPinger.Library
             throw new IOException("Buffer length too short!");
         }
 
-        public Int32 ReadVarInt()
+        public int ReadVarInt()
         {
-            Int32 value = 0;
-            Int32 size = 0;
-            Int32 b;
+            int value = 0;
+            int size = 0;
+            int b;
             while (((b = ReadByte()) & 0x80) == 0x80)
             {
                 value |= (b & 0x7F) << (size++ * 7);
@@ -106,22 +106,22 @@ namespace MinecraftPinger.Library
             return value | ((b & 0x7F) << (size * 7));
         }
 
-        public String ReadString(Int32 length)
+        public string ReadString(int length)
         {
             var data = this.Read(length);
             return Encoding.UTF8.GetString(data);
         }
 
-        public Int64 ReadLong()
+        public long ReadLong()
         {
             return BitConverter.ToInt64(this.Read(8));
         }
-        public Int16 ReadShort()
+        public short ReadShort()
         {
             return BitConverter.ToInt16(this.Read(2).Reverse().ToArray());
         }
 
-        public Byte[] ReadMagic()
+        public byte[] ReadMagic()
         {
             var b = this.Read(OutgoingMessage.Magic.Length);
 
