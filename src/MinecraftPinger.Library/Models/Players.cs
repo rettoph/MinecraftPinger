@@ -2,7 +2,7 @@
 
 namespace MinecraftPinger.Library.Models
 {
-    public class Players
+    public sealed record Players
     {
         public static readonly Players Empty = new Players();
 

@@ -2,7 +2,7 @@
 
 namespace MinecraftPinger.Library.Models
 {
-    public class Player
+    public sealed record Player
     {
         [JsonPropertyName("id")]
         public string Id { get; set; } = string.Empty;

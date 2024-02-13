@@ -2,7 +2,7 @@
 
 namespace MinecraftPinger.Library.Models
 {
-    public class ModInfo
+    public sealed record ModInfo
     {
         [JsonPropertyName("type")]
         public string Type { get; set; } = string.Empty;

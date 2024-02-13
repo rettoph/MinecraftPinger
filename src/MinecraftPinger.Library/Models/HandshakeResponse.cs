@@ -2,7 +2,7 @@
 
 namespace MinecraftPinger.Library.Models
 {
-    public class HandshakeResponse
+    public sealed record HandshakeResponse
     {
         public static readonly HandshakeResponse Empty = new HandshakeResponse();
 

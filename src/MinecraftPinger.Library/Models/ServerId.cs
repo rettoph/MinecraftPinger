@@ -1,6 +1,6 @@
 ﻿namespace MinecraftPinger.Library.Models
 {
-    public class ServerId
+    public sealed record ServerId
     {
         public static readonly ServerId Empty = new ServerId();
 

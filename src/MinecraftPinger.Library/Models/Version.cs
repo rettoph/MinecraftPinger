@@ -2,7 +2,7 @@
 
 namespace MinecraftPinger.Library.Models
 {
-    public class Version
+    public sealed record Version
     {
         public static readonly Version Empty = new Version();
 

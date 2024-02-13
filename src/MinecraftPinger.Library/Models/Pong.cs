@@ -3,7 +3,7 @@ using System.Net;
 
 namespace MinecraftPinger.Library.Models
 {
-    public class Pong<T>
+    public sealed record Pong<T>
     {
         public required IPEndPoint Endpoint { get; init; }
 

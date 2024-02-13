@@ -2,7 +2,7 @@
 
 namespace MinecraftPinger.Library.Models
 {
-    public class ModPackData
+    public sealed record ModPackData
     {
         [JsonPropertyName("projectID")]
         public int ProjectId { get; set; }

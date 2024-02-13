@@ -1,6 +1,6 @@
 ﻿namespace MinecraftPinger.Library.Models
 {
-    public class RaknetProtocolUnconnectedPong
+    public sealed record RaknetProtocolUnconnectedPong
     {
         public DateTime Time { get; set; }
         public long ServerGuid { get; set; }

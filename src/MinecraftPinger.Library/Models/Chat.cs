@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace MinecraftPinger.Library.Models
 {
-    public class Chat
+    public sealed record Chat
     {
         public static readonly Chat Empty = new Chat();
 
