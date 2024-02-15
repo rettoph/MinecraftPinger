@@ -1,7 +1,4 @@
 ﻿using MinecraftPinger.Library.Enums;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Text;
 
 namespace MinecraftPinger.Library
@@ -28,7 +25,7 @@ namespace MinecraftPinger.Library
             _buffer.AddRange(BitConverter.GetBytes(value));
         }
 
-        private void WriteVarInt(int value, List<byte> tempBuffer = default)
+        private void WriteVarInt(int value, List<byte> tempBuffer)
         {
             List<byte> b = tempBuffer ?? _buffer;
             while ((value & 128) != 0)
@@ -72,7 +69,7 @@ namespace MinecraftPinger.Library
 
         public byte[] GetData(bool appendSize)
         {
-            if(appendSize)
+            if (appendSize)
             {
                 List<byte> _output = new List<byte>();
                 this.WriteVarInt(_buffer.Count, _output);
