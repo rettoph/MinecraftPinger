@@ -35,6 +35,16 @@ namespace MinecraftPinger.Library
                     }
                 }
 
+                if (socket.Connected == false)
+                {
+                    return new Pong<HandshakeResponse>()
+                    {
+                        Endpoint = endpoint,
+                        Status = PongStatusEnum.Timeout,
+                        Content = null
+                    };
+                }
+
                 using (NetworkStream stream = socket.GetStream())
                 {
                     this.SendHandshake(stream, endpoint);
